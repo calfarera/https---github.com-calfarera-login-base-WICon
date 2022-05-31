@@ -1,4 +1,4 @@
-import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { UserAuth } from '../Context/AuthContext';
@@ -32,7 +32,7 @@ export default function () {
                         QURBAN
                     </Typography>
 
-                    {user?.displayName ? (
+                    {user?.email ? (
                     <Typography onClick={handleSignOut} component={NavLink} sx={navStyles} to='/signin' >
                         Log Out
                     </Typography> ) : ( 

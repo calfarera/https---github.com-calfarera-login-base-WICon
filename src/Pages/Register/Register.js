@@ -1,6 +1,7 @@
 import { Box, Container, Grid, ThemeProvider, CssBaseline, 
-  createTheme, TextField, Typography, Button, Link 
+  createTheme, TextField, Typography, Button, Link, Avatar 
 } from '@mui/material'
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../Context/AuthContext';
@@ -31,14 +32,39 @@ export default function Register() {
       <ThemeProvider theme={theme} >
         <Container component='main' maxWidth='xs' >
           <CssBaseline />
-          <Box>
+          <Box sx={{
+            marginTop: 5,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            p: 2,
+            boxShadow: 3,
+            textAlign: 'center',
+          }} >
             <Typography component='h1' variant='h4' sx={{mb: 2}} >
               Register New Account
             </Typography>
             <Typography component='h3' variant='h6' sx={{mb: 2}} >
               Sign Up to create a new account to access the website!
             </Typography>
-              <Box component='form' onSubmit={handleSubmit} >
+          </Box>
+          <Box sx={{
+            marginTop: 5,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            p: 3,
+            boxShadow: 3,
+            textAlign: 'center',
+          }} >
+            <Avatar sx={{ m:1, bgcolor: 'primary.main' }} >
+                <LockOutlinedIcon />
+            </Avatar>
+            <Typography component='h1' variant='h4' >
+                Sign Up
+            </Typography>
+            
+            <Box component='form' onSubmit={handleSubmit} >
                 <Grid container spacing={2} >
                   <Grid item xs={12} sm={6} >
                     <TextField 
@@ -95,13 +121,16 @@ export default function Register() {
 
                   <Grid container justifyContent="flex-end" sx={{ mt: 2 }} >
                     <Grid item>
-                      <Link href='/signin' variant="body2">
-                        Already have an account? Sign in
-                      </Link>
+                      <Typography variant='body2' > 
+                        Already have an account?
+                        <Link href='/signin' variant="body2">
+                          Sign in
+                        </Link>
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>  
-              </Box>
+            </Box>
           </Box>
         </Container>        
       </ThemeProvider>

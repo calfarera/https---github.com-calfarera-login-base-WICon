@@ -1,4 +1,7 @@
-import { Box, Button, Container, createTheme, Grid, Link, ThemeProvider, Typography } from '@mui/material'
+import { 
+    Box, Button, Container, createTheme, 
+    Grid, Link, ThemeProvider, Typography 
+} from '@mui/material'
 import React from 'react'
 import { UserAuth } from '../../Context/AuthContext';
 
@@ -30,7 +33,7 @@ export default function Account() {
                                 variant='h5' 
                                 sx={{ textTransform: 'uppercase', fontWeight: 'bold', mb: 2 }}
                                 >
-                                Welcome, {user?.displayName} !
+                                Welcome, {user? user.email : user.displayName} !
                             </Typography>
                             <Typography variant='body2' sx={{ m: 2 }} >
                                 Wants to change password? <Link to='/' >Change Password</Link>
